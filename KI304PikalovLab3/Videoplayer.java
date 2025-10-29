@@ -1,4 +1,4 @@
-package KI304PikalovLab2;
+package KI304PikalovLab3;
 
 import java.io.*;
 import java.util.*;
@@ -13,7 +13,7 @@ import java.util.*;
  * @author
  * @version 1.1
  */
-public class Videoplayer {
+abstract class Videoplayer {
     Power pow;
     Volume vol;
     Screen screen;
@@ -21,9 +21,9 @@ public class Videoplayer {
     ProgramStatus stat;
     Scanner in = new Scanner(System.in);
     PrintWriter fout;
-    private ArrayList<String> videos = new ArrayList<>();
-    private boolean videoStat = false;
-    private String currentVideo;
+    protected ArrayList<String> videos = new ArrayList<>();
+    protected boolean videoStat = false;
+    protected String currentVideo;
 
     /**
      * Default constructor.

@@ -1,7 +1,8 @@
-package KI304PikalovLab2;
+package KI304PikalovLab3;
 
 import java.io.*;
 import java.util.*;
+
 
 /**
  * Main class for Lab2PikalovKI304 project.
@@ -14,7 +15,7 @@ import java.util.*;
  * @author 
  * @version 1.0
  */
-public class Lab2PikalovKI304 {
+public class Lab3PikalovKI304 {
     /**
      * Main entry point of the program.
      *
@@ -28,23 +29,27 @@ public class Lab2PikalovKI304 {
         System.out.println("Local storage or USB");
         int flag = in.nextInt();
 
-        Videoplayer player = null;
+        Videomagnitophone player = null;
         if(flag == 1) 
-            player = new Videoplayer(); 
+            player = new Videomagnitophone(); 
         else if(flag == 2) 
-            player = new Videoplayer(false, 50, 12, false); 
+            player = new Videomagnitophone(false, 50, 12, false); 
         else {
             System.out.println("Wrong number");
             System.exit(0); 
         }
 
+        
+
+       
         while (player.getProgramStatus() == true){
             for (int i = 0; i < 30; i++) {
                 System.out.println();
             }
 
             System.out.println("Chose option 1: Plug In/Off 2: Turn On/Off 3:Change Volume 4:Available videos " +
-                   "5:Add video 6:Delete video 7:Play video 8:Change diagonal 9:About device 10:End program");
+                   "5:Add video 6:Delete video 7:Play video 8:Change diagonal 9:About device 10:Start recording " + 
+                    "11:Stop recording 12:Save recorded video 13:End program");
 
             int choice = in.nextInt();
 
@@ -106,6 +111,18 @@ public class Lab2PikalovKI304 {
                    player.Stats();
                    break; 
                 case 10:
+                   fout.println("Start recording");
+                   player.StartRecording();
+                   break;
+                case 11:
+                   fout.println("Stop recording");
+                   player.StopRecording();
+                   break;
+                case 12:
+                   fout.println("Save recorded video");
+                   player.SaveRecVid();
+                   break;   
+                case 13:
                    fout.println("End program");
                    System.exit(0); 
                default:
